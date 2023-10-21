@@ -18,7 +18,7 @@ void swap(int *array, int i, int j)
 }
 
 /**
- * partition - partition an array using the lomuto partition scheme
+ * partition - partition an array using the Lomuto partition scheme
  * @array: array of integers
  * @start: lowest index of array
  * @end: highest index of array
@@ -72,7 +72,7 @@ void quick_sort_recursive(int *array, int start, int end, size_t size)
 }
 
 /**
- * quick_sort - sort an array of integers in ascending order using the 
+ * quick_sort - sort an array of integers in ascending order using the
  * Quick sort algorithm
  * @array: array of integers
  * @size: size of array

@@ -3,6 +3,7 @@
 /**
  * bubble_sort - sorting an array using bubble sort algorithm
  *
+ *
  * @array: the array to sort
  * @size: the size of the array
  */

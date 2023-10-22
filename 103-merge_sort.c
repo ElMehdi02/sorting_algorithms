@@ -1,6 +1,7 @@
 #include "sort.h"
 
 /**
+ *
  * merge - Sort a array of integers.
  * @array: An array of an array of integers to sort.
  * @temp_arr: A temp_arr to store the sorted array.

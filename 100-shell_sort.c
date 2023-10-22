@@ -1,39 +1,47 @@
 #include "sort.h"
 
 /**
- *
- * shell_sort - sort an array of integers in ascending order using the
- * shell sort algorithm
- * @array: array of integers
- * @size: size of array
- * Return: void
+ * swap_nbrs - Swap two numbers in an array.
+ * @x:   first number to swap.
+ * @y:   second number to swap.
  */
-
-void shell_sort(int *array, size_t size)
+void swap_nbrs(int *x, int *y)
 {
-	size_t gap = 1, i, j;
 	int temp;
 
-	if (!array || size < 2)
+	temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+/**
+ * shell_sort - Sort an array of numbers in ascending order
+ * @array: An array of numbers.
+ * @size:   size of   array.
+ *
+ * Description: Uses   Knuth interval sequence.
+ */
+void shell_sort(int *array, size_t size)
+{
+	size_t gapp, x, y;
+
+	if (array == NULL || size < 2)
 		return;
 
-	while (gap < size / 3)
-		gap = gap * 3 + 1;
+	for (gapp = 1; gapp < (size / 3);)
+		gapp = gapp * 3 + 1;
 
-	while (gap > 0)
+	for (; gapp >= 1; gapp /= 3)
 	{
-		for (i = gap; i < size; i++)
+		for (x = gapp; x < size; x++)
 		{
-			temp = array[i];
-			j = i;
-			while (j >= gap && array[j - gap] > temp)
+			y = x;
+			while (y >= gapp && array[y - gapp] > array[y])
 			{
-				array[j] = array[j - gap];
-				j -= gap;
+				swap_nbrs(array + y, array + (y - gapp));
+				y -= gapp;
 			}
-			array[j] = temp;
 		}
-		gap = (gap - 1) / 3;
 		print_array(array, size);
 	}
 }
